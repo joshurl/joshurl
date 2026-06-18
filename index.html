@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jamison Digital Marketing Agency | Grow Your Following</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
+        .gradient-bg { background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%); }
+        .glow { box-shadow: 0 0 40px rgba(99, 102, 241, 0.3); }
+        .btn-primary { background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); transition: all 0.3s ease; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg btn-primary flex items-center justify-center text-white font-bold text-sm">J</div>
+                <span class="font-bold text-xl">Jamison</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+                <a href="#services" class="hover:text-indigo-600 transition">Services</a>
+                <a href="#how-it-works" class="hover:text-indigo-600 transition">How It Works</a>
+                <a href="#pricing" class="hover:text-indigo-600 transition">Pricing</a>
+                <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
+            </div>
+            <a href="#contact" class="btn-primary text-white px-5 py-2.5 rounded-full text-sm font-semibold">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="gradient-bg min-h-screen pt-24 flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 25% 50%, #6366f1 0%, transparent 50%), radial-gradient(circle at 75% 50%, #8b5cf6 0%, transparent 50%);"></div>
+        <div class="max-w-7xl mx-auto px-6 py-24 relative z-10">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white/80 text-sm px-4 py-2 rounded-full mb-8 border border-white/10">
+                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                    Trusted by 50+ creators
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
+                    Grow Your Following.<br />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Get Noticed. Get Paid.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed max-w-2xl">
+                    Stop posting into the void. We use proven audience targeting, content optimization, and engagement strategies to take you from unknown to undeniable — on TikTok, Instagram, YouTube, and Twitch.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="btn-primary text-white px-8 py-4 rounded-full text-lg font-semibold text-center">Book Your Free Strategy Call</a>
+                    <a href="#how-it-works" class="border border-white/20 text-white px-8 py-4 rounded-full text-lg font-semibold text-center hover:bg-white/5 transition">See How It Works</a>
+                </div>
+                <div class="flex items-center gap-8 mt-12 text-gray-400 text-sm">
+                    <div class="flex -space-x-2">
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-pink-400 to-purple-500 border-2 border-gray-900"></div>
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-cyan-500 border-2 border-gray-900"></div>
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 border-2 border-gray-900"></div>
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 border-2 border-gray-900"></div>
+                    </div>
+                    <span>Join <strong class="text-white">50+ creators</strong> already growing with us</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Strip -->
+    <section class="bg-gray-50 border-y border-gray-100 py-8">
+        <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-500 font-medium">
+            <p class="mb-4">Featured on creators and brands like</p>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16 text-gray-300 text-xl font-bold tracking-wider opacity-60">
+                <span>FORBES</span>
+                <span>BUZZFEED</span>
+                <span>TECHCRUNCH</span>
+                <span>BUSINESS INSIDER</span>
+                <span>SOCIAL MEDIA TODAY</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-indigo-600 font-semibold text-sm uppercase tracking-widest">What We Do</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold mt-4 mb-6">Services That Actually Grow Your Account</h2>
+                <p class="text-gray-500 text-lg max-w-2xl mx-auto">No fluff, no bots, no fake engagement. Just data-driven strategies that real creators use to break through.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Growth Retainer -->
+                <div class="card-hover bg-white border border-gray-100 rounded-3xl p-8 glow">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Growth Retainer</h3>
+                    <p class="text-gray-500 mb-6">Ongoing monthly strategy, audience analysis, and content optimization. We're in your corner every week.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Weekly audience growth analysis</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Content calendar &amp; optimization</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Cross-platform promotion strategy</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Monthly performance reports</li>
+                    </ul>
+                    <div class="flex items-baseline gap-2 mb-6">
+                        <span class="text-4xl font-extrabold">$500</span>
+                        <span class="text-gray-400">/mo</span>
+                        <span class="text-gray-300 mx-2">–</span>
+                        <span class="text-4xl font-extrabold">$2,000</span>
+                        <span class="text-gray-400">/mo</span>
+                    </div>
+                    <a href="#contact" class="block w-full btn-primary text-white text-center py-4 rounded-xl font-semibold">Get Started</a>
+                </div>
+
+                <!-- Launch Campaign -->
+                <div class="card-hover bg-white border border-gray-100 rounded-3xl p-8">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Launch Campaign</h3>
+                    <p class="text-gray-500 mb-6">One-time targeted campaigns to jumpstart your growth — giveaways, shoutout loops, and viral pushes.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Full campaign strategy &amp; execution</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Creator cross-promotion coordination</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Viral content amplification</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Post-campaign analytics</li>
+                    </ul>
+                    <div class="text-4xl font-extrabold mb-6">Custom Pricing</div>
+                    <a href="#contact" class="block w-full border-2 border-indigo-600 text-indigo-600 text-center py-4 rounded-xl font-semibold hover:bg-indigo-50 transition">Get a Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-indigo-600 font-semibold text-sm uppercase tracking-widest">The Process</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold mt-4 mb-6">How We Grow Your Following</h2>
+                <p class="text-gray-500 text-lg max-w-2xl mx-auto">A proven system that's helped creators gain thousands of real, engaged followers.</p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-full btn-primary flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">1</div>
+                    <h3 class="font-bold text-lg mb-2">Audit &amp; Analyze</h3>
+                    <p class="text-gray-500 text-sm">We deep-dive your content, audience, and platform data to find exactly what's working and what's not.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-full btn-primary flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">2</div>
+                    <h3 class="font-bold text-lg mb-2">Strategy</h3>
+                    <p class="text-gray-500 text-sm">Custom growth plan built around your niche, your strengths, and your growth goals.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-full btn-primary flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">3</div>
+                    <h3 class="font-bold text-lg mb-2">Execute &amp; Optimize</h3>
+                    <p class="text-gray-500 text-sm">We implement — content calendar, engagement tactics, cross-promotions, the works.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-full btn-primary flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">4</div>
+                    <h3 class="font-bold text-lg mb-2">Scale</h3>
+                    <p class="text-gray-500 text-sm">We track, tweak, and double down on what works. Month over month, your following grows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results / Stats -->
+    <section class="py-24 gradient-bg">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-indigo-300 font-semibold text-sm uppercase tracking-widest">Real Results</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold mt-4 mb-6 text-white">Numbers That Speak</h2>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">5K+</div>
+                    <p class="text-gray-400 mt-2">Avg Monthly Followers Gained</p>
+                </div>
+                <div>
+                    <div class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">94%</div>
+                    <p class="text-gray-400 mt-2">Client Retention Rate</p>
+                </div>
+                <div>
+                    <div class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">50+</div>
+                    <p class="text-gray-400 mt-2">Active Clients</p>
+                </div>
+                <div>
+                    <div class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">12</div>
+                    <p class="text-gray-400 mt-2">Platform Partners</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-indigo-600 font-semibold text-sm uppercase tracking-widest">Testimonials</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold mt-4 mb-6">What Creators Say</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-3xl p-8 card-hover">
+                    <div class="flex items-center gap-1 text-amber-400 mb-4">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-gray-600 mb-6">"I was stuck at 2K followers for months. After 6 weeks with Jamison, I hit 15K. The strategy they built for my niche was insane."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-400 to-purple-500"></div>
+                        <div>
+                            <p class="font-semibold text-sm">Alex Rivera</p>
+                            <p class="text-gray-400 text-xs">TikTok Creator · 45K followers</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-3xl p-8 card-hover">
+                    <div class="flex items-center gap-1 text-amber-400 mb-4">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-gray-600 mb-6">"The launch campaign got me featured on 12 bigger pages in one week. My DMs were blowing up. Absolutely worth every dollar."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-cyan-500"></div>
+                        <div>
+                            <p class="font-semibold text-sm">Maya Chen</p>
+                            <p class="text-gray-400 text-xs">Instagram Creator · 89K followers</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-3xl p-8 card-hover">
+                    <div class="flex items-center gap-1 text-amber-400 mb-4">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-gray-600 mb-6">"The growth retainer is a no-brainer. They handle the strategy so I can focus on creating. My engagement rate tripled in 2 months."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-orange-500"></div>
+                        <div>
+                            <p class="font-semibold text-sm">Jordan Kim</p>
+                            <p class="text-gray-400 text-xs">YouTube &amp; Twitch · 120K subs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-indigo-600 font-semibold text-sm uppercase tracking-widest">Pricing</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold mt-4 mb-6">Simple, Transparent Pricing</h2>
+                <p class="text-gray-500 text-lg max-w-2xl mx-auto">Start with a free strategy call. No contracts, no hidden fees. Cancel anytime.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Starter -->
+                <div class="bg-white rounded-3xl p-8 border border-gray-100 card-hover">
+                    <h3 class="text-xl font-bold mb-2">Starter</h3>
+                    <p class="text-gray-500 text-sm mb-6">For creators just starting to grow</p>
+                    <div class="text-4xl font-extrabold mb-1">$500<span class="text-lg font-normal text-gray-400">/mo</span></div>
+                    <ul class="mt-8 space-y-3 mb-8">
+                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Monthly content audit</li>
+                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Growth strategy session</li>
+                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Content calendar</li>
+                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Monthly report</li>
+                    </ul>
+                    <a href="#contact" class="block w-full border-2 border-gray-200 text-center py-3 rounded-xl font-semibold hover:border-indigo-600 hover:text-indigo-600 transition">Get Started</a>
+                </div>
+                <!-- Pro (Highlighted) -->
+                <div class="bg-white rounded-3xl p-8 border-2 border-indigo-600 card-hover relative glow">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-full">Most Popular</div>
+                    <h3 class="text-xl font-bold mb-2">Pro</h3>
+                    <p class="text-gray-500 text-sm mb-6">For serious creators scaling up</p>
+                    <div class="text-4xl font-extrabold mb-1">$1,200<span class="text-lg font-normal text-gray-400">/mo</span></div>
+                    <ul class="mt-8 space-y-3 mb-8">
+                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Bi-weekly content audit</li>
+                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Weekly strategy calls</li>
+                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Full content calendar + optimization</li>
+                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Cross-platform promotion</li>
+                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Bi-weekly performance reports</li>
+                    </ul>
+                    <a href="#contact" class="block w-full btn-primary text-white text-center py-3 rounded-xl font-semibold">Get Started</a>
+                </div>
+                <!-- Enterprise -->
+                <div class="bg-white rounded-3xl p-8 border border-gray-100 card-hover">
+                    <h3 class="text-xl font-bold mb-2">Elite</h3>
+                    <p class="text-gray-500 text-sm mb-6">For established creators &amp; multi-platform</p>
+                    <div class="text-4xl font-extrabold mb-1">$2,000<span class="text-lg font-normal text-gray-400">/mo</span></div>
+                    <ul class="mt-8 space-y-3 mb-8">
+                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Weekly deep-dive audits</li>
+                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Dedicated account manager</li>
+                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Full content production strategy</li>
+                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Multi-platform cross-promotion</li>
+                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Weekly performance reports</li>
+                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Priority support</li>
+                    </ul>
+                    <a href="#contact" class="block w-full border-2 border-gray-200 text-center py-3 rounded-xl font-semibold hover:border-indigo-600 hover:text-indigo-600 transition">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Lead Capture -->
+    <section id="contact" class="py-24 bg-white">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-indigo-600 font-semibold text-sm uppercase tracking-widest">Let's Talk</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold mt-4 mb-6">Ready to Grow?</h2>
+                <p class="text-gray-500 text-lg">Book a free strategy call. No pressure, just a plan to get you more followers.</p>
+            </div>
+            <form id="leadForm" class="bg-gray-50 rounded-3xl p-8 md:p-12 space-y-6" onsubmit="handleSubmit(event)">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-semibold mb-2 text-gray-700">Full Name</label>
+                        <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 outline-none transition" placeholder="Alex Rivera" />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2 text-gray-700">Email</label>
+                        <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 outline-none transition" placeholder="alex@example.com" />
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-semibold mb-2 text-gray-700">Platform</label>
+                        <select name="platform" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 outline-none transition bg-white">
+                            <option value="">Select your main platform</option>
+                            <option value="tiktok">TikTok</option>
+                            <option value="instagram">Instagram</option>
+                            <option value="youtube">YouTube</option>
+                            <option value="twitch">Twitch</option>
+                            <option value="multiple">Multiple Platforms</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2 text-gray-700">Current Followers</label>
+                        <select name="followers" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 outline-none transition bg-white">
+                            <option value="">Select range</option>
+                            <option value="0-1k">0 – 1,000</option>
+                            <option value="1k-10k">1,000 – 10,000</option>
+                            <option value="10k-50k">10,000 – 50,000</option>
+                            <option value="50k-100k">50,000 – 100,000</option>
+                            <option value="100k+">100,000+</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-2 text-gray-700">What are you looking for?</label>
+                    <textarea name="message" rows="3" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 outline-none transition" placeholder="Tell us about your goals..."></textarea>
+                </div>
+                <button type="submit" class="w-full btn-primary text-white py-4 rounded-xl text-lg font-semibold">Book Your Free Strategy Call</button>
+                <p class="text-center text-gray-400 text-sm">No spam. No pressure. Just a real conversation about growing your audience.</p>
+            </form>
+            <div id="successMessage" class="hidden bg-green-50 rounded-3xl p-12 text-center">
+                <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-2">You're on the list!</h3>
+                <p class="text-gray-500">We'll be in touch within 24 hours to schedule your free strategy call.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg btn-primary flex items-center justify-center text-white font-bold text-sm">J</div>
+                    <span class="font-bold text-xl text-white">Jamison</span>
+                </div>
+                <div class="flex gap-8 text-sm">
+                    <a href="#services" class="hover:text-white transition">Services</a>
+                    <a href="#how-it-works" class="hover:text-white transition">How It Works</a>
+                    <a href="#pricing" class="hover:text-white transition">Pricing</a>
+                    <a href="#contact" class="hover:text-white transition">Contact</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-sm">
+                <p>&copy; 2026 Jamison Digital Marketing Agency. All rights reserved.</p>
+                <p class="mt-2">Helping creators grow, get noticed, and get paid.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('leadForm');
+            const success = document.getElementById('successMessage');
+            form.classList.add('hidden');
+            success.classList.remove('hidden');
+            // In production: send form data to backend / API endpoint
+            return false;
+        }
+    </script>
+
+</body>
+</html>
