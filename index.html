@@ -3,412 +3,488 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jamison Digital Marketing Agency | Grow Your Following</title>
+    <title>FullStack Sites | Custom Websites, Front-End & Back-End Solutions</title>
+    <meta name="description" content="FullStack Sites builds complete, polished websites for small businesses, startups, and organizations. One shop for design, development, and deployment." />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
         * { font-family: 'Inter', sans-serif; }
         html { scroll-behavior: smooth; }
-        .gradient-bg { background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%); }
-        .glow { box-shadow: 0 0 40px rgba(99, 102, 241, 0.3); }
+        .gradient-hero { background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%); }
+        .gradient-primary { background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); }
+        .gradient-accent { background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%); }
         .btn-primary { background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); transition: all 0.3s ease; }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(99,102,241,0.4); }
         .card-hover { transition: all 0.3s ease; }
-        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .glow-indigo { box-shadow: 0 0 40px rgba(99,102,241,0.25); }
+        .floating { animation: float 6s ease-in-out infinite; }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
     </style>
 </head>
-<body class="bg-white text-gray-900">
+<body class="bg-white text-gray-900 antialiased">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg btn-primary flex items-center justify-center text-white font-bold text-sm">J</div>
-                <span class="font-bold text-xl">Jamison</span>
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100" x-data="{ open: false }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <a href="#" class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-lg gradient-primary flex items-center justify-center text-white font-bold text-sm">FS</div>
+                    <span class="font-bold text-xl tracking-tight">FullStack <span class="text-indigo-600">Sites</span></span>
+                </a>
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+                    <a href="#services" class="hover:text-indigo-600 transition">Services</a>
+                    <a href="#process" class="hover:text-indigo-600 transition">Process</a>
+                    <a href="#portfolio" class="hover:text-indigo-600 transition">Portfolio</a>
+                    <a href="#pricing" class="hover:text-indigo-600 transition">Pricing</a>
+                    <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
+                </div>
+                <a href="#contact" class="hidden md:inline-flex btn-primary text-white px-6 py-2.5 rounded-full text-sm font-semibold">Get a Quote</a>
+                <button @click="open = !open" class="md:hidden p-2 text-gray-600 hover:text-indigo-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        <path x-show="open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
             </div>
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
-                <a href="#services" class="hover:text-indigo-600 transition">Services</a>
-                <a href="#how-it-works" class="hover:text-indigo-600 transition">How It Works</a>
-                <a href="#pricing" class="hover:text-indigo-600 transition">Pricing</a>
-                <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
+        </div>
+        <div x-show="open" class="md:hidden border-t border-gray-100 bg-white" @click.outside="open = false">
+            <div class="px-4 py-4 space-y-3 text-base font-medium text-gray-600">
+                <a href="#services" @click="open = false" class="block py-2 hover:text-indigo-600">Services</a>
+                <a href="#process" @click="open = false" class="block py-2 hover:text-indigo-600">Process</a>
+                <a href="#portfolio" @click="open = false" class="block py-2 hover:text-indigo-600">Portfolio</a>
+                <a href="#pricing" @click="open = false" class="block py-2 hover:text-indigo-600">Pricing</a>
+                <a href="#contact" @click="open = false" class="block py-2 hover:text-indigo-600">Contact</a>
+                <a href="#contact" @click="open = false" class="block text-center gradient-primary text-white px-5 py-3 rounded-full font-semibold">Get a Quote</a>
             </div>
-            <a href="#contact" class="btn-primary text-white px-5 py-2.5 rounded-full text-sm font-semibold">Get Started</a>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="gradient-bg min-h-screen pt-24 flex items-center relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 25% 50%, #6366f1 0%, transparent 50%), radial-gradient(circle at 75% 50%, #8b5cf6 0%, transparent 50%);"></div>
-        <div class="max-w-7xl mx-auto px-6 py-24 relative z-10">
-            <div class="max-w-3xl">
-                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white/80 text-sm px-4 py-2 rounded-full mb-8 border border-white/10">
-                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                    Trusted by 50+ creators
-                </div>
-                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
-                    Grow Your Following.<br />
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Get Noticed. Get Paid.</span>
-                </h1>
-                <p class="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed max-w-2xl">
-                    Stop posting into the void. We use proven audience targeting, content optimization, and engagement strategies to take you from unknown to undeniable — on TikTok, Instagram, YouTube, and Twitch.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#contact" class="btn-primary text-white px-8 py-4 rounded-full text-lg font-semibold text-center">Book Your Free Strategy Call</a>
-                    <a href="#how-it-works" class="border border-white/20 text-white px-8 py-4 rounded-full text-lg font-semibold text-center hover:bg-white/5 transition">See How It Works</a>
-                </div>
-                <div class="flex items-center gap-8 mt-12 text-gray-400 text-sm">
-                    <div class="flex -space-x-2">
-                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-pink-400 to-purple-500 border-2 border-gray-900"></div>
-                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-cyan-500 border-2 border-gray-900"></div>
-                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 border-2 border-gray-900"></div>
-                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 border-2 border-gray-900"></div>
+    <!-- ===== HERO ===== -->
+    <section class="gradient-hero min-h-screen flex items-center relative overflow-hidden pt-16">
+        <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(circle at 20% 40%, #6366f1 0%, transparent 50%), radial-gradient(circle at 80% 60%, #06b6d4 0%, transparent 50%);"></div>
+        <div class="absolute top-20 right-10 w-64 h-64 border border-indigo-500/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 left-10 w-96 h-96 border border-cyan-500/10 rounded-full blur-3xl"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 relative z-10 w-full">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="max-w-2xl">
+                    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white/80 text-sm px-4 py-2 rounded-full mb-6 border border-white/10">
+                        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                        Now serving businesses nationwide
                     </div>
-                    <span>Join <strong class="text-white">50+ creators</strong> already growing with us</span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-tight mb-6">
+                        Your Website,<br />
+                        <span class="gradient-primary bg-clip-text text-transparent">Fully Built</span> &amp; Ready
+                    </h1>
+                    <p class="text-lg sm:text-xl text-gray-300 mb-8 max-w-xl leading-relaxed">
+                        We build complete, polished websites from scratch &mdash; front-end design <em>and</em> back-end systems. No stitching together freelancers. One team, one delivery.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#portfolio" class="btn-primary text-white px-7 py-3.5 rounded-full text-sm font-semibold inline-flex items-center gap-2">
+                            View Our Work
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                        <a href="#contact" class="border-2 border-white/30 text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:bg-white/10 transition inline-flex items-center gap-2">
+                            Get a Free Quote
+                        </a>
+                    </div>
+                    <div class="mt-10 flex items-center gap-6 text-sm text-gray-400">
+                        <div class="flex -space-x-2">
+                            <div class="w-8 h-8 rounded-full gradient-primary flex items-center justify-center text-white text-xs font-bold border-2 border-indigo-900">JD</div>
+                            <div class="w-8 h-8 rounded-full bg-cyan-500 flex items-center justify-center text-white text-xs font-bold border-2 border-indigo-900">SK</div>
+                            <div class="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center text-white text-xs font-bold border-2 border-indigo-900">MT</div>
+                            <div class="w-8 h-8 rounded-full bg-pink-500 flex items-center justify-center text-white text-xs font-bold border-2 border-indigo-900">+5</div>
+                        </div>
+                        <span>Trusted by growing businesses</span>
+                    </div>
+                </div>
+                <div class="hidden lg:block relative">
+                    <div class="relative rounded-2xl overflow-hidden glow-indigo">
+                        <img src="images/hero-bg.png" alt="FullStack Sites - Modern Web Development" class="w-full h-auto rounded-2xl" />
+                    </div>
+                    <div class="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-xl p-4 flex items-center gap-3 floating">
+                        <div class="w-10 h-10 rounded-lg gradient-accent flex items-center justify-center text-white">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500">Projects Delivered</p>
+                            <p class="text-lg font-bold text-gray-900">50+</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Social Proof Strip -->
-    <section class="bg-gray-50 border-y border-gray-100 py-8">
-        <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-500 font-medium">
-            <p class="mb-4">Featured on creators and brands like</p>
-            <div class="flex flex-wrap justify-center gap-8 md:gap-16 text-gray-300 text-xl font-bold tracking-wider opacity-60">
-                <span>FORBES</span>
-                <span>BUZZFEED</span>
-                <span>TECHCRUNCH</span>
-                <span>BUSINESS INSIDER</span>
-                <span>SOCIAL MEDIA TODAY</span>
+    <!-- ===== TECH BADGES ===== -->
+    <section class="py-12 bg-gray-50 border-y border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap items-center justify-center gap-8 lg:gap-16 text-sm text-gray-500">
+                <span class="font-semibold text-gray-400 uppercase tracking-wider">Full Stack</span>
+                <span class="flex items-center gap-2"><svg class="w-4 h-4 text-indigo-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> React &amp; Next.js</span>
+                <span class="flex items-center gap-2"><svg class="w-4 h-4 text-indigo-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Node.js &amp; Python</span>
+                <span class="flex items-center gap-2"><svg class="w-4 h-4 text-indigo-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Tailwind CSS</span>
+                <span class="flex items-center gap-2"><svg class="w-4 h-4 text-indigo-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> SQL &amp; NoSQL</span>
+                <span class="flex items-center gap-2"><svg class="w-4 h-4 text-indigo-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Vercel &amp; AWS</span>
             </div>
         </div>
     </section>
 
-    <!-- Services -->
-    <section id="services" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-indigo-600 font-semibold text-sm uppercase tracking-widest">What We Do</span>
-                <h2 class="text-4xl md:text-5xl font-extrabold mt-4 mb-6">Services That Actually Grow Your Account</h2>
-                <p class="text-gray-500 text-lg max-w-2xl mx-auto">No fluff, no bots, no fake engagement. Just data-driven strategies that real creators use to break through.</p>
+    <!-- ===== SERVICES ===== -->
+    <section id="services" class="py-16 sm:py-20 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-indigo-600 font-semibold text-sm uppercase tracking-wider">What We Do</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mt-3 mb-5">Complete Website Solutions</h2>
+                <p class="text-lg text-gray-600">From pixel-perfect front-ends to rock-solid back-ends &mdash; we handle every layer so you don't have to coordinate multiple vendors.</p>
             </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Growth Retainer -->
-                <div class="card-hover bg-white border border-gray-100 rounded-3xl p-8 glow">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mb-6">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+                <!-- Service 1 -->
+                <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                    <div class="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center text-white mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3">Growth Retainer</h3>
-                    <p class="text-gray-500 mb-6">Ongoing monthly strategy, audience analysis, and content optimization. We're in your corner every week.</p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Weekly audience growth analysis</li>
-                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Content calendar &amp; optimization</li>
-                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Cross-platform promotion strategy</li>
-                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Monthly performance reports</li>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Front-End Development</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">Beautiful, responsive UIs built with React, Next.js, or Vue. Pixel-perfect designs that work beautifully on every device.</p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-indigo-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> UI/UX Design &amp; Prototyping</li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-indigo-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Responsive &amp; Mobile-First</li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-indigo-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Animations &amp; Interactions</li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-indigo-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Performance Optimization</li>
                     </ul>
-                    <div class="flex items-baseline gap-2 mb-6">
-                        <span class="text-4xl font-extrabold">$500</span>
-                        <span class="text-gray-400">/mo</span>
-                        <span class="text-gray-300 mx-2">–</span>
-                        <span class="text-4xl font-extrabold">$2,000</span>
-                        <span class="text-gray-400">/mo</span>
-                    </div>
-                    <a href="#contact" class="block w-full btn-primary text-white text-center py-4 rounded-xl font-semibold">Get Started</a>
                 </div>
 
-                <!-- Launch Campaign -->
-                <div class="card-hover bg-white border border-gray-100 rounded-3xl p-8">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center mb-6">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
+                <!-- Service 2 -->
+                <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                    <div class="w-14 h-14 rounded-xl gradient-accent flex items-center justify-center text-white mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3">Launch Campaign</h3>
-                    <p class="text-gray-500 mb-6">One-time targeted campaigns to jumpstart your growth — giveaways, shoutout loops, and viral pushes.</p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Full campaign strategy &amp; execution</li>
-                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Creator cross-promotion coordination</li>
-                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Viral content amplification</li>
-                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Post-campaign analytics</li>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Back-End Systems</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">Robust APIs, databases, authentication, and server logic. We build the engine that powers your site reliably.</p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-indigo-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> RESTful &amp; GraphQL APIs</li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-indigo-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Databases (PostgreSQL, MongoDB)</li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-indigo-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Authentication &amp; Authorization</li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-indigo-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Cloud Deployment &amp; Scaling</li>
                     </ul>
-                    <div class="text-4xl font-extrabold mb-6">Custom Pricing</div>
-                    <a href="#contact" class="block w-full border-2 border-indigo-600 text-indigo-600 text-center py-4 rounded-xl font-semibold hover:bg-indigo-50 transition">Get a Quote</a>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- How It Works -->
-    <section id="how-it-works" class="py-24 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-indigo-600 font-semibold text-sm uppercase tracking-widest">The Process</span>
-                <h2 class="text-4xl md:text-5xl font-extrabold mt-4 mb-6">How We Grow Your Following</h2>
-                <p class="text-gray-500 text-lg max-w-2xl mx-auto">A proven system that's helped creators gain thousands of real, engaged followers.</p>
-            </div>
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="w-16 h-16 rounded-full btn-primary flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">1</div>
-                    <h3 class="font-bold text-lg mb-2">Audit &amp; Analyze</h3>
-                    <p class="text-gray-500 text-sm">We deep-dive your content, audience, and platform data to find exactly what's working and what's not.</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 rounded-full btn-primary flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">2</div>
-                    <h3 class="font-bold text-lg mb-2">Strategy</h3>
-                    <p class="text-gray-500 text-sm">Custom growth plan built around your niche, your strengths, and your growth goals.</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 rounded-full btn-primary flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">3</div>
-                    <h3 class="font-bold text-lg mb-2">Execute &amp; Optimize</h3>
-                    <p class="text-gray-500 text-sm">We implement — content calendar, engagement tactics, cross-promotions, the works.</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 rounded-full btn-primary flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">4</div>
-                    <h3 class="font-bold text-lg mb-2">Scale</h3>
-                    <p class="text-gray-500 text-sm">We track, tweak, and double down on what works. Month over month, your following grows.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Results / Stats -->
-    <section class="py-24 gradient-bg">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-indigo-300 font-semibold text-sm uppercase tracking-widest">Real Results</span>
-                <h2 class="text-4xl md:text-5xl font-extrabold mt-4 mb-6 text-white">Numbers That Speak</h2>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div>
-                    <div class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">5K+</div>
-                    <p class="text-gray-400 mt-2">Avg Monthly Followers Gained</p>
-                </div>
-                <div>
-                    <div class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">94%</div>
-                    <p class="text-gray-400 mt-2">Client Retention Rate</p>
-                </div>
-                <div>
-                    <div class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">50+</div>
-                    <p class="text-gray-400 mt-2">Active Clients</p>
-                </div>
-                <div>
-                    <div class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">12</div>
-                    <p class="text-gray-400 mt-2">Platform Partners</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section id="testimonials" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-indigo-600 font-semibold text-sm uppercase tracking-widest">Testimonials</span>
-                <h2 class="text-4xl md:text-5xl font-extrabold mt-4 mb-6">What Creators Say</h2>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 rounded-3xl p-8 card-hover">
-                    <div class="flex items-center gap-1 text-amber-400 mb-4">
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <!-- Service 3 -->
+                <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center text-white mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
                     </div>
-                    <p class="text-gray-600 mb-6">"I was stuck at 2K followers for months. After 6 weeks with Jamison, I hit 15K. The strategy they built for my niche was insane."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-400 to-purple-500"></div>
-                        <div>
-                            <p class="font-semibold text-sm">Alex Rivera</p>
-                            <p class="text-gray-400 text-xs">TikTok Creator · 45K followers</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Hosting &amp; Deployment</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">We configure hosting, CI/CD, custom domains, SSL, and ongoing maintenance. Your site stays fast, secure, and always online.</p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-indigo-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Vercel / Netlify / AWS Deployment</li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-indigo-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Custom Domain &amp; SSL Setup</li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-indigo-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> CI/CD Pipelines</li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-indigo-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Performance Monitoring</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROCESS ===== -->
+    <section id="process" class="py-16 sm:py-20 lg:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-indigo-600 font-semibold text-sm uppercase tracking-wider">How We Work</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mt-3 mb-5">From Idea to Launch</h2>
+                <p class="text-lg text-gray-600">A proven process that keeps your project on track, on budget, and on time.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-full gradient-primary flex items-center justify-center text-white text-2xl font-bold mx-auto mb-5 shadow-lg glow-indigo">1</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Discovery</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">We learn about your business, goals, audience, and competition. Define scope, timeline, and budget.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-full gradient-accent flex items-center justify-center text-white text-2xl font-bold mx-auto mb-5 shadow-lg">2</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Design</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Wireframes, mockups, and prototypes. We iterate until the design is perfect before writing a line of code.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center text-white text-2xl font-bold mx-auto mb-5 shadow-lg">3</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Build</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Full-stack development with regular check-ins. Front-end, back-end, database, and deployment all in sync.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-white text-2xl font-bold mx-auto mb-5 shadow-lg">4</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Launch &amp; Support</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Deploy to production, configure domains &amp; SSL, then ongoing maintenance and updates as needed.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PORTFOLIO ===== -->
+    <section id="portfolio" class="py-16 sm:py-20 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-indigo-600 font-semibold text-sm uppercase tracking-wider">Our Work</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mt-3 mb-5">Recent Projects</h2>
+                <p class="text-lg text-gray-600">Websites we've built for businesses like yours. Each project is a complete front-end + back-end solution.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div class="card-hover rounded-2xl overflow-hidden border border-gray-100 bg-white shadow-sm">
+                    <div class="aspect-video bg-gray-100 overflow-hidden">
+                        <img src="images/portfolio-project1.png" alt="E-Commerce Platform" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">E-Commerce</span>
+                        <h3 class="text-lg font-bold text-gray-900 mt-3 mb-2">ShopLocal Market</h3>
+                        <p class="text-sm text-gray-600">Full-featured online marketplace with product management, cart, checkout, and admin dashboard.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">React</span>
+                            <span class="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">Node.js</span>
+                            <span class="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">PostgreSQL</span>
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-50 rounded-3xl p-8 card-hover">
-                    <div class="flex items-center gap-1 text-amber-400 mb-4">
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+
+                <div class="card-hover rounded-2xl overflow-hidden border border-gray-100 bg-white shadow-sm">
+                    <div class="aspect-video bg-gray-100 overflow-hidden">
+                        <img src="images/portfolio-project2.png" alt="SaaS Analytics Dashboard" class="w-full h-full object-cover" />
                     </div>
-                    <p class="text-gray-600 mb-6">"The launch campaign got me featured on 12 bigger pages in one week. My DMs were blowing up. Absolutely worth every dollar."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-cyan-500"></div>
-                        <div>
-                            <p class="font-semibold text-sm">Maya Chen</p>
-                            <p class="text-gray-400 text-xs">Instagram Creator · 89K followers</p>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-cyan-600 bg-cyan-50 px-3 py-1 rounded-full">SaaS</span>
+                        <h3 class="text-lg font-bold text-gray-900 mt-3 mb-2">DataFlow Analytics</h3>
+                        <p class="text-sm text-gray-600">Real-time analytics dashboard with interactive charts, user management, and API integrations.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">Next.js</span>
+                            <span class="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">Python</span>
+                            <span class="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">MongoDB</span>
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-50 rounded-3xl p-8 card-hover">
-                    <div class="flex items-center gap-1 text-amber-400 mb-4">
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+
+                <div class="card-hover rounded-2xl overflow-hidden border border-gray-100 bg-white shadow-sm">
+                    <div class="aspect-video bg-gray-100 overflow-hidden">
+                        <img src="images/portfolio-project3.png" alt="Restaurant Website" class="w-full h-full object-cover" />
                     </div>
-                    <p class="text-gray-600 mb-6">"The growth retainer is a no-brainer. They handle the strategy so I can focus on creating. My engagement rate tripled in 2 months."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-orange-500"></div>
-                        <div>
-                            <p class="font-semibold text-sm">Jordan Kim</p>
-                            <p class="text-gray-400 text-xs">YouTube &amp; Twitch · 120K subs</p>
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-orange-600 bg-orange-50 px-3 py-1 rounded-full">Local Business</span>
+                        <h3 class="text-lg font-bold text-gray-900 mt-3 mb-2">La Maison Restaurant</h3>
+                        <p class="text-sm text-gray-600">Complete restaurant website with online menu, reservation system, photo gallery, and contact form.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">Vue.js</span>
+                            <span class="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">Express</span>
+                            <span class="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">SQLite</span>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Pricing -->
-    <section id="pricing" class="py-24 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-indigo-600 font-semibold text-sm uppercase tracking-widest">Pricing</span>
-                <h2 class="text-4xl md:text-5xl font-extrabold mt-4 mb-6">Simple, Transparent Pricing</h2>
-                <p class="text-gray-500 text-lg max-w-2xl mx-auto">Start with a free strategy call. No contracts, no hidden fees. Cancel anytime.</p>
+    <!-- ===== PRICING ===== -->
+    <section id="pricing" class="py-16 sm:py-20 lg:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-indigo-600 font-semibold text-sm uppercase tracking-wider">Pricing</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mt-3 mb-5">Transparent Pricing</h2>
+                <p class="text-lg text-gray-600">Fixed-price projects with no hidden fees. Monthly maintenance included with each plan.</p>
             </div>
+
             <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
                 <!-- Starter -->
-                <div class="bg-white rounded-3xl p-8 border border-gray-100 card-hover">
-                    <h3 class="text-xl font-bold mb-2">Starter</h3>
-                    <p class="text-gray-500 text-sm mb-6">For creators just starting to grow</p>
-                    <div class="text-4xl font-extrabold mb-1">$500<span class="text-lg font-normal text-gray-400">/mo</span></div>
-                    <ul class="mt-8 space-y-3 mb-8">
-                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Monthly content audit</li>
-                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Growth strategy session</li>
-                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Content calendar</li>
-                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Monthly report</li>
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm card-hover">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Starter</h3>
+                    <p class="text-sm text-gray-500 mb-4">Single-page landing page for a simple professional presence</p>
+                    <p class="text-4xl font-extrabold text-gray-900 mb-2">$999</p>
+                    <p class="text-sm text-gray-500 mb-6">+ $29/mo hosting &amp; maintenance</p>
+                    <ul class="space-y-3 text-sm text-gray-600 mb-8">
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Single-page landing page</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Basic SEO setup</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Contact form integration</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Hosting &amp; security included</li>
                     </ul>
-                    <a href="#contact" class="block w-full border-2 border-gray-200 text-center py-3 rounded-xl font-semibold hover:border-indigo-600 hover:text-indigo-600 transition">Get Started</a>
+                    <a href="#contact" class="block text-center border-2 border-indigo-600 text-indigo-600 font-semibold py-3 rounded-full hover:bg-indigo-50 transition">Get Started</a>
                 </div>
-                <!-- Pro (Highlighted) -->
-                <div class="bg-white rounded-3xl p-8 border-2 border-indigo-600 card-hover relative glow">
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-full">Most Popular</div>
-                    <h3 class="text-xl font-bold mb-2">Pro</h3>
-                    <p class="text-gray-500 text-sm mb-6">For serious creators scaling up</p>
-                    <div class="text-4xl font-extrabold mb-1">$1,200<span class="text-lg font-normal text-gray-400">/mo</span></div>
-                    <ul class="mt-8 space-y-3 mb-8">
-                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Bi-weekly content audit</li>
-                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Weekly strategy calls</li>
-                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Full content calendar + optimization</li>
-                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Cross-platform promotion</li>
-                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Bi-weekly performance reports</li>
+
+                <!-- Professional -->
+                <div class="bg-white rounded-2xl p-8 border-2 border-indigo-600 shadow-lg card-hover relative">
+                    <div class="absolute top-0 right-8 bg-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-b-lg">Popular</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Professional</h3>
+                    <p class="text-sm text-gray-500 mb-4">Multi-page site with custom design and full feature set</p>
+                    <p class="text-4xl font-extrabold text-gray-900 mb-2">$2,499</p>
+                    <p class="text-sm text-gray-500 mb-6">+ $49/mo hosting &amp; maintenance</p>
+                    <ul class="space-y-3 text-sm text-gray-600 mb-8">
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Up to 5 pages</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Custom UI/UX design</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Enhanced SEO</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Integrations (Booking, Maps)</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Ongoing maintenance</li>
                     </ul>
-                    <a href="#contact" class="block w-full btn-primary text-white text-center py-3 rounded-xl font-semibold">Get Started</a>
+                    <a href="#contact" class="block text-center gradient-primary text-white font-semibold py-3 rounded-full shadow-md hover:shadow-lg transition">Get Started</a>
                 </div>
-                <!-- Enterprise -->
-                <div class="bg-white rounded-3xl p-8 border border-gray-100 card-hover">
-                    <h3 class="text-xl font-bold mb-2">Elite</h3>
-                    <p class="text-gray-500 text-sm mb-6">For established creators &amp; multi-platform</p>
-                    <div class="text-4xl font-extrabold mb-1">$2,000<span class="text-lg font-normal text-gray-400">/mo</span></div>
-                    <ul class="mt-8 space-y-3 mb-8">
-                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Weekly deep-dive audits</li>
-                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Dedicated account manager</li>
-                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Full content production strategy</li>
-                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Multi-platform cross-promotion</li>
-                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Weekly performance reports</li>
-                        <li class="flex items-start gap-3 text-sm"><svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Priority support</li>
+
+                <!-- Custom -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm card-hover">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Custom</h3>
+                    <p class="text-sm text-gray-500 mb-4">E-commerce, SaaS, or fully custom web application</p>
+                    <p class="text-4xl font-extrabold text-gray-900 mb-2">$5,000<span class="text-base font-normal text-gray-400">+</span></p>
+                    <p class="text-sm text-gray-500 mb-6">+ $99/mo hosting &amp; priority support</p>
+                    <ul class="space-y-3 text-sm text-gray-600 mb-8">
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> E-commerce or SaaS features</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Database integration</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Advanced functionality</li>
+                        <li class="flex items-start gap-3"><svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Priority support</li>
                     </ul>
-                    <a href="#contact" class="block w-full border-2 border-gray-200 text-center py-3 rounded-xl font-semibold hover:border-indigo-600 hover:text-indigo-600 transition">Get Started</a>
+                    <a href="#contact" class="block text-center border-2 border-indigo-600 text-indigo-600 font-semibold py-3 rounded-full hover:bg-indigo-50 transition">Contact Us</a>
                 </div>
+
+            </div>
+
+            <div class="mt-12 text-center">
+                <p class="text-sm text-gray-500">All plans include a free consultation. Monthly maintenance covers hosting, security updates, and support.</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact / Lead Capture -->
-    <section id="contact" class="py-24 bg-white">
-        <div class="max-w-3xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <span class="text-indigo-600 font-semibold text-sm uppercase tracking-widest">Let's Talk</span>
-                <h2 class="text-4xl md:text-5xl font-extrabold mt-4 mb-6">Ready to Grow?</h2>
-                <p class="text-gray-500 text-lg">Book a free strategy call. No pressure, just a plan to get you more followers.</p>
-            </div>
-            <form id="leadForm" class="bg-gray-50 rounded-3xl p-8 md:p-12 space-y-6" onsubmit="handleSubmit(event)">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-sm font-semibold mb-2 text-gray-700">Full Name</label>
-                        <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 outline-none transition" placeholder="Alex Rivera" />
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold mb-2 text-gray-700">Email</label>
-                        <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 outline-none transition" placeholder="alex@example.com" />
+    <!-- ===== CONTACT / CTA ===== -->
+    <section id="contact" class="py-16 sm:py-20 lg:py-24 gradient-hero relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 30% 50%, #6366f1 0%, transparent 50%), radial-gradient(circle at 70% 50%, #06b6d4 0%, transparent 50%);"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                <div>
+                    <span class="text-indigo-300 font-semibold text-sm uppercase tracking-wider">Get In Touch</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-3 mb-5">Let's Build Something Great</h2>
+                    <p class="text-lg text-gray-300 mb-8 max-w-lg leading-relaxed">
+                        Tell us about your project and we'll get back to you within 24 hours with a free estimate and timeline.
+                    </p>
+                    <div class="space-y-5">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-indigo-300 shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-white font-medium">Email</p>
+                                <p class="text-gray-400 text-sm">hello@fullstacksites.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-indigo-300 shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-white font-medium">Location</p>
+                                <p class="text-gray-400 text-sm">Serving businesses nationwide</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-sm font-semibold mb-2 text-gray-700">Platform</label>
-                        <select name="platform" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 outline-none transition bg-white">
-                            <option value="">Select your main platform</option>
-                            <option value="tiktok">TikTok</option>
-                            <option value="instagram">Instagram</option>
-                            <option value="youtube">YouTube</option>
-                            <option value="twitch">Twitch</option>
-                            <option value="multiple">Multiple Platforms</option>
-                        </select>
+
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-white/10">
+                    <form action="#" method="POST" class="space-y-5">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="name" class="block text-sm text-white/80 mb-1.5">Your Name</label>
+                                <input type="text" id="name" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm" />
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm text-white/80 mb-1.5">Email</label>
+                                <input type="email" id="email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm" />
+                            </div>
+                        </div>
+                        <div>
+                            <label for="company" class="block text-sm text-white/80 mb-1.5">Company</label>
+                            <input type="text" id="company" placeholder="Your Business Name" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm" />
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm text-white/80 mb-1.5">Project Details</label>
+                            <textarea id="message" rows="4" required placeholder="Tell us about your project, goals, and timeline..." class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full btn-primary text-white font-semibold py-3.5 rounded-xl text-sm hover:shadow-lg transition">
+                            Send Message
+                        </button>
+                        <p class="text-xs text-center text-gray-400">We'll respond within 24 hours. No spam, ever.</p>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-gray-950 text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="sm:col-span-2 lg:col-span-2">
+                    <div class="flex items-center gap-2.5 mb-4">
+                        <div class="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center text-white font-bold text-xs">FS</div>
+                        <span class="font-bold text-lg text-white">FullStack <span class="text-indigo-400">Sites</span></span>
                     </div>
-                    <div>
-                        <label class="block text-sm font-semibold mb-2 text-gray-700">Current Followers</label>
-                        <select name="followers" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 outline-none transition bg-white">
-                            <option value="">Select range</option>
-                            <option value="0-1k">0 – 1,000</option>
-                            <option value="1k-10k">1,000 – 10,000</option>
-                            <option value="10k-50k">10,000 – 50,000</option>
-                            <option value="50k-100k">50,000 – 100,000</option>
-                            <option value="100k+">100,000+</option>
-                        </select>
-                    </div>
+                    <p class="text-sm text-gray-500 max-w-md leading-relaxed">
+                        Complete website solutions for businesses, startups, and organizations. We handle design, development, and deployment — all in one place.
+                    </p>
                 </div>
                 <div>
-                    <label class="block text-sm font-semibold mb-2 text-gray-700">What are you looking for?</label>
-                    <textarea name="message" rows="3" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 outline-none transition" placeholder="Tell us about your goals..."></textarea>
+                    <h4 class="text-white font-semibold text-sm mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#services" class="hover:text-white transition">Front-End Dev</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Back-End Systems</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Hosting &amp; Deployment</a></li>
+                        <li><a href="#pricing" class="hover:text-white transition">Pricing</a></li>
+                    </ul>
                 </div>
-                <button type="submit" class="w-full btn-primary text-white py-4 rounded-xl text-lg font-semibold">Book Your Free Strategy Call</button>
-                <p class="text-center text-gray-400 text-sm">No spam. No pressure. Just a real conversation about growing your audience.</p>
-            </form>
-            <div id="successMessage" class="hidden bg-green-50 rounded-3xl p-12 text-center">
-                <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                </div>
-                <h3 class="text-2xl font-bold mb-2">You're on the list!</h3>
-                <p class="text-gray-500">We'll be in touch within 24 hours to schedule your free strategy call.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-12">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
-                <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-lg btn-primary flex items-center justify-center text-white font-bold text-sm">J</div>
-                    <span class="font-bold text-xl text-white">Jamison</span>
-                </div>
-                <div class="flex gap-8 text-sm">
-                    <a href="#services" class="hover:text-white transition">Services</a>
-                    <a href="#how-it-works" class="hover:text-white transition">How It Works</a>
-                    <a href="#pricing" class="hover:text-white transition">Pricing</a>
-                    <a href="#contact" class="hover:text-white transition">Contact</a>
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#portfolio" class="hover:text-white transition">Portfolio</a></li>
+                        <li><a href="#process" class="hover:text-white transition">Process</a></li>
+                        <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-800 pt-8 text-center text-sm">
-                <p>&copy; 2026 Jamison Digital Marketing Agency. All rights reserved.</p>
-                <p class="mt-2">Helping creators grow, get noticed, and get paid.</p>
+            <div class="mt-10 pt-8 border-t border-gray-800 text-sm text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p>&copy; 2026 FullStack Sites. All rights reserved.</p>
+                <p class="text-gray-600">Design &amp; Development by FullStack Sites Team</p>
             </div>
         </div>
     </footer>
 
+    <!-- Simple form handler - logs to console (static demo) -->
     <script>
-        function handleSubmit(e) {
-            e.preventDefault();
-            const form = document.getElementById('leadForm');
-            const success = document.getElementById('successMessage');
-            form.classList.add('hidden');
-            success.classList.remove('hidden');
-            // In production: send form data to backend / API endpoint
-            return false;
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const data = {
+                        name: document.getElementById('name')?.value,
+                        email: document.getElementById('email')?.value,
+                        company: document.getElementById('company')?.value,
+                        message: document.getElementById('message')?.value
+                    };
+                    console.log('Form submitted:', data);
+                    alert('Thank you! We\'ll get back to you within 24 hours.');
+                    form.reset();
+                });
+            }
+        });
     </script>
-
 </body>
 </html>
